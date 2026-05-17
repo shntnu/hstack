@@ -859,8 +859,8 @@ is the entry point for both human browsing and LLM navigation.
 
 ### CLAUDE.md
 
-Generate the vault's CLAUDE.md by rendering the template in `shared/wiki_claude_md.tmpl`.
-Read the template file first. It contains placeholder markers (CONDITION, CONDITION_SHORT,
+Generate the vault's CLAUDE.md by rendering the template `wiki_claude_md.tmpl` located
+alongside this skill file. Read the template file first. It contains placeholder markers (CONDITION, CONDITION_SHORT,
 WHO, SOURCE_COUNT, COMPILED_DATE). Replace each with the actual values for this vault:
 
 - **CONDITION** — Full disease name (e.g., "Type 1 Diabetes")
