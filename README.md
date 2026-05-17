@@ -24,11 +24,19 @@ For someone dealing with a specific disease, hstack can also build a personal, d
 
 ## Install
 
+### Option A: skills.sh (recommended)
+
+```bash
+npx skills add kamens/hstack -g --agent claude-code -y
+```
+
+This installs all 9 skills globally. Start a new Claude Code session and the `/hstack-*` commands are available immediately.
+
+### Option B: Clone + install script
+
 Open Claude Code and paste this. Claude does the rest.
 
 > Install hstack: clone the repo with **`git clone https://github.com/kamens/hstack ~/.claude/skills/hstack`**, then use AskUserQuestion to ask whether I want skills installed globally or project-locally. Then run `~/.claude/skills/hstack/install.sh --global` or `~/.claude/skills/hstack/install.sh --project` based on my answer.
-
-Start a new Claude Code session and the `/hstack-*` commands are available immediately.
 
 Or run it yourself in a terminal — `git clone` then `./install.sh` and it'll walk you through it.
 
