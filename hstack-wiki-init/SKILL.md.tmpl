@@ -288,18 +288,23 @@ is the entry point for both human browsing and LLM navigation.
 
 ### CLAUDE.md
 
-Generate the vault's CLAUDE.md by rendering the template `wiki_claude_md.tmpl` located
-alongside this skill file. Read the template file first. It contains placeholder markers (CONDITION, CONDITION_SHORT,
-WHO, SOURCE_COUNT, COMPILED_DATE). Replace each with the actual values for this vault:
+Generate the vault's CLAUDE.md from the template below. Replace the `__PLACEHOLDER__`
+markers with the actual values for this vault:
 
-- **CONDITION** — Full disease name (e.g., "Type 1 Diabetes")
-- **CONDITION_SHORT** — What a patient would naturally say (e.g., "T1D", "MS", "Crohn's", "ALS")
-- **WHO** — Patient's name
-- **SOURCE_COUNT** — Number of files in raw/
-- **COMPILED_DATE** — Today's date (YYYY-MM-DD)
+- `__CONDITION__` — Full disease name (e.g., "Type 1 Diabetes")
+- `__CONDITION_SHORT__` — What a patient would naturally say (e.g., "T1D", "MS", "Crohn's", "ALS")
+- `__WHO__` — Patient's name
+- `__SOURCE_COUNT__` — Number of files in raw/
+- `__COMPILED_DATE__` — Today's date (YYYY-MM-DD)
 
 Write the rendered output as the vault's CLAUDE.md. Do not add, remove, or reword
 sections — the template is the canonical source for vault behavior.
+
+<details><summary>CLAUDE.md template</summary>
+
+{{WIKI_CLAUDE_MD}}
+
+</details>
 
 ### log.md
 

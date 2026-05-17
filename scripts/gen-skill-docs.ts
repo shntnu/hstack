@@ -13,7 +13,7 @@
  *   bun run scripts/gen-skill-docs.ts            # generate all
  *   bun run scripts/gen-skill-docs.ts --dry-run   # compare without writing
  */
-import { readdirSync, readFileSync, writeFileSync, statSync, existsSync, copyFileSync } from "fs";
+import { readdirSync, readFileSync, writeFileSync, statSync, existsSync } from "fs";
 import { join, basename, dirname, relative } from "path";
 
 const ROOT = dirname(dirname(import.meta.path));
@@ -56,28 +56,6 @@ async function syncExternalDeps(): Promise<void> {
 }
 
 await syncExternalDeps();
-
-// Copy shared assets that skills reference at runtime into their directories.
-// This makes skills self-contained when installed via `npx skills add` (which
-// extracts each skill directory independently, without the shared/ folder).
-const RUNTIME_ASSETS: Record<string, string[]> = {
-  "hstack-wiki-init": ["wiki_claude_md.tmpl"],
-};
-
-for (const [skill, files] of Object.entries(RUNTIME_ASSETS)) {
-  const skillDir = join(ROOT, skill);
-  if (!existsSync(skillDir)) continue;
-  for (const file of files) {
-    const src = join(SHARED_DIR, file);
-    const dest = join(skillDir, file);
-    if (!existsSync(src)) {
-      console.error(`Error: shared/${file} does not exist (needed by ${skill})`);
-      process.exit(1);
-    }
-    copyFileSync(src, dest);
-    console.log(`Copied: shared/${file} → ${skill}/${file}`);
-  }
-}
 
 // Discover all SKILL.md.tmpl files (one level deep)
 const templates: string[] = [];
